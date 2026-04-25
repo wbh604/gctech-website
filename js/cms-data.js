@@ -7,7 +7,7 @@
     'use strict';
 
     // 客户数据版本号（变更时自动重置localStorage为最新默认值）
-    var DATA_VERSION = 'gctech-2026-04-25';
+    var DATA_VERSION = 'gctech-2026-04-25-v2';
     if (typeof localStorage !== 'undefined') {
         var savedVer = localStorage.getItem('cms_data_version');
         if (savedVer !== DATA_VERSION) {
