@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网站建设素材填写表 - 浮点未来科技</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif; background: #f5f7fa; color: #1d2939; line-height: 1.7; }
+.header { background: linear-gradient(135deg, #001833 0%, #003c8f 100%); color: #fff; padding: 48px 24px; text-align: center; }
+.header h1 { font-size: 28px; margin-bottom: 8px; }
+.header p { opacity: 0.8; font-size: 14px; max-width: 600px; margin: 0 auto; }
+.container { max-width: 860px; margin: 0 auto; padding: 24px 20px 80px; }
+.progress-bar { position: sticky; top: 0; z-index: 100; background: #fff; padding: 12px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 0 0 12px 12px; margin-bottom: 24px; }
+.progress-bar .bar { height: 6px; background: #e4e7ec; border-radius: 3px; overflow: hidden; }
+.progress-bar .bar-fill { height: 100%; background: #003c8f; transition: width 0.3s; width: 0%; border-radius: 3px; }
+.progress-bar .bar-text { font-size: 12px; color: #667085; margin-top: 4px; text-align: right; }
+.section { background: #fff; border-radius: 12px; padding: 28px 28px 20px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.section-num { display: inline-block; background: #003c8f; color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: 13px; font-weight: 700; margin-right: 8px; }
+.section h2 { font-size: 18px; color: #1d2939; margin-bottom: 4px; display: inline; vertical-align: middle; }
+.section .section-desc { font-size: 13px; color: #667085; margin: 6px 0 20px; padding-left: 36px; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; font-weight: 500; }
+.badge-required { background: #fef3f2; color: #d92d20; }
+.badge-optional { background: #f0f4fa; color: #003c8f; }
+.form-row { display: flex; gap: 16px; margin-bottom: 16px; }
+.form-row > .form-group { flex: 1; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: #475467; margin-bottom: 5px; }
+.form-group label .hint { font-weight: 400; color: #98a2b3; font-size: 12px; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 14px; border: 1.5px solid #e4e7ec; border-radius: 8px; font-size: 14px; font-family: inherit; transition: border-color 0.2s; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: #003c8f; box-shadow: 0 0 0 3px rgba(0,60,143,0.08); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.file-upload { border: 2px dashed #d0d5dd; border-radius: 8px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s; position: relative; }
+.file-upload:hover { border-color: #003c8f; background: #f8fafc; }
+.file-upload input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.file-upload .icon { font-size: 28px; color: #98a2b3; }
+.file-upload p { font-size: 13px; color: #667085; margin-top: 4px; }
+.preview-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.preview-item { width: 80px; height: 80px; border-radius: 6px; object-fit: contain; background: #f8f9fa; padding: 4px; border: 1px solid #e4e7ec; }
+.dynamic-list { border: 1px solid #e4e7ec; border-radius: 8px; padding: 12px; margin-bottom: 12px; min-height: 20px; }
+.item { background: #f8fafc; border-radius: 8px; padding: 16px; margin-bottom: 12px; position: relative; }
+.item:last-child { margin-bottom: 0; }
+.item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.item-header h4 { font-size: 14px; color: #003c8f; }
+.remove-btn { background: none; border: none; color: #d92d20; cursor: pointer; font-size: 13px; padding: 4px 8px; }
+.btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-size: 14px; font-family: inherit; transition: all 0.2s; }
+.btn-primary { background: #003c8f; color: #fff; }
+.btn-primary:hover { background: #1565c0; }
+.btn-secondary { background: #f0f2f5; color: #475467; }
+.btn-secondary:hover { background: #e4e7ec; }
+.btn-success { background: #12b76a; color: #fff; font-size: 16px; padding: 14px 32px; }
+.btn-success:hover { background: #0d9e5a; }
+.btn-add { background: none; border: 1.5px dashed #d0d5dd; color: #667085; width: 100%; padding: 10px; border-radius: 8px; margin-top: 8px; cursor: pointer; }
+.btn-add:hover { border-color: #003c8f; color: #003c8f; }
+.bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 14px 24px; box-shadow: 0 -2px 12px rgba(0,0,0,0.08); display: flex; justify-content: center; gap: 12px; z-index: 200; }
+.toast { position: fixed; top: 20px; right: 20px; background: #12b76a; color: #fff; padding: 12px 24px; border-radius: 8px; z-index: 999; display: none; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.toast.show { display: block; animation: slideIn 0.3s ease; }
+@keyframes slideIn { from { transform: translateX(50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@media (max-width: 600px) { .form-row { flex-direction: column; gap: 0; } .section { padding: 20px 16px; } .container { padding: 16px 12px 80px; } }
+.timeline-row { display: flex; gap: 10px; margin-bottom: 8px; align-items: center; }
+.timeline-row input:first-child { flex: 0 0 100px; }
+.timeline-row input:last-of-type { flex: 1; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>网站建设素材填写表</h1>
+    <p>请逐项填写以下信息，填写完成后点击底部「导出数据」按钮，将生成的文件发送给我们即可。支持随时保存草稿，下次打开自动恢复。</p>
+</div>
+<div class="container" id="app">
+<div class="progress-bar"><div class="bar"><div class="bar-fill" id="progressFill"></div></div><div class="bar-text" id="progressText">0 / 9 已完成</div></div>
+
+<div class="section"><span class="section-num">1</span><h2>公司基础信息</h2><span class="badge badge-required">必需</span><p class="section-desc">网站的基本品牌信息</p><div class="form-row"><div class="form-group"><label>公司全称</label><input id="companyFull" placeholder="如：深圳XX科技有限公司"></div><div class="form-group"><label>品牌简称</label><input id="companyShort" placeholder="如：XX科技"></div></div><div class="form-row"><div class="form-group"><label>英文名称</label><input id="companyEn" placeholder="如：XX TECH"></div><div class="form-group"><label>英文标语 <span class="hint">（可选）</span></label><input id="companySlogan" placeholder="如：TOOLS FOR INNOVATION"></div></div><div class="form-group"><label>公司简介 <span class="hint">（200-500字）</span></label><textarea id="companyIntro" rows="5" placeholder="公司成立时间、主营业务、技术实力、市场地位等"></textarea></div><div class="form-row"><div class="form-group"><label>Logo（深色版）</label><div class="file-upload"><input type="file" accept="image/*" onchange="handleFile(this,'logoLight')"><div class="icon">+</div><p>上传PNG透明底</p></div><div class="preview-grid" id="logoLight-preview"></div></div><div class="form-group"><label>Logo（浅色版）</label><div class="file-upload"><input type="file" accept="image/*" onchange="handleFile(this,'logoDark')"><div class="icon">+</div><p>上传PNG透明底</p></div><div class="preview-grid" id="logoDark-preview"></div></div></div></div>
+
+<div class="section"><span class="section-num">2</span><h2>联系信息</h2><span class="badge badge-required">必需</span><p class="section-desc">网站头部、页脚和联系页展示</p><div class="form-row"><div class="form-group"><label>服务热线</label><input id="phone" placeholder="400-xxx-xxxx"></div><div class="form-group"><label>联系电话/手机</label><input id="mobile" placeholder="138xxxxxxxx"></div></div><div class="form-row"><div class="form-group"><label>联系邮箱</label><input id="email" placeholder="info@xxx.com"></div><div class="form-group"><label>第二邮箱 <span class="hint">（可选）</span></label><input id="email2"></div></div><div class="form-group"><label>公司总部地址</label><input id="address" placeholder="XX省XX市XX区XX路XX号"></div><div class="form-group"><label>分公司/办事处</label></div><div id="officesList" class="dynamic-list"></div><button class="btn btn-add" onclick="addOffice()">+ 添加分公司</button><div class="form-group" style="margin-top:16px"><label>微信二维码</label><div class="file-upload"><input type="file" accept="image/*" onchange="handleFile(this,'qrcode')"><div class="icon">+</div><p>上传二维码图片</p></div><div class="preview-grid" id="qrcode-preview"></div></div></div>
+
+<div class="section"><span class="section-num">3</span><h2>首页轮播大图</h2><span class="badge badge-required">必需</span><p class="section-desc">首页顶部全屏轮播，建议2-4张</p><div id="bannersList" class="dynamic-list"></div><button class="btn btn-add" onclick="addBanner()">+ 添加Banner</button></div>
+
+<div class="section"><span class="section-num">4</span><h2>产品资料</h2><span class="badge badge-required">必需</span><p class="section-desc">至少提供6个产品</p><div class="form-group"><label>产品分类 <span class="hint">（逗号分隔）</span></label><input id="productCats" placeholder="分类1,分类2,分类3"></div><div id="productsList" class="dynamic-list"></div><button class="btn btn-add" onclick="addProduct()">+ 添加产品</button></div>
+
+<div class="section"><span class="section-num">5</span><h2>应用案例</h2><span class="badge badge-optional">推荐</span><p class="section-desc">产品的典型应用场景</p><div id="appsList" class="dynamic-list"></div><button class="btn btn-add" onclick="addApp()">+ 添加应用</button></div>
+
+<div class="section"><span class="section-num">6</span><h2>新闻动态</h2><span class="badge badge-optional">推荐</span><p class="section-desc">建议首次准备3-5篇</p><div id="newsList" class="dynamic-list"></div><button class="btn btn-add" onclick="addNews()">+ 添加新闻</button></div>
+
+<div class="section"><span class="section-num">7</span><h2>企业文化与历程</h2><span class="badge badge-optional">推荐</span><p class="section-desc">关于我们页面内容</p><div class="form-row"><div class="form-group"><label>企业使命</label><input id="mission" placeholder="一句话"></div><div class="form-group"><label>企业愿景</label><input id="vision" placeholder="一句话"></div></div><div class="form-group"><label>核心价值观</label><input id="values" placeholder="如：用户至上、创新驱动"></div><div class="form-group"><label>发展历程</label></div><div id="timelineList"></div><button class="btn btn-add" onclick="addTimeline()">+ 添加年份</button><div class="form-group" style="margin-top:16px"><label>荣誉资质</label></div><div id="certsList" class="dynamic-list"></div><button class="btn btn-add" onclick="addCert()">+ 添加资质</button></div>
+
+<div class="section"><span class="section-num">8</span><h2>域名与SEO</h2><span class="badge badge-required">必需</span><p class="section-desc">搜索引擎优化信息</p><div class="form-row"><div class="form-group"><label>网站域名</label><input id="domain" placeholder="xxx.com"></div><div class="form-group"><label>ICP备案号 <span class="hint">（如有）</span></label><input id="icp"></div></div><div class="form-group"><label>网站标题 <span class="hint">（60字内，含关键词）</span></label><input id="siteTitle" placeholder="XX科技-关键词1-关键词2"></div><div class="form-group"><label>网站描述 <span class="hint">（100字内）</span></label><textarea id="siteDesc" rows="2" placeholder="公司核心业务描述"></textarea></div><div class="form-group"><label>SEO关键词 <span class="hint">（逗号分隔，10-20个）</span></label><input id="siteKeywords" placeholder="关键词1,关键词2"></div></div>
+
+<div class="section"><span class="section-num">9</span><h2>社交媒体</h2><span class="badge badge-optional">可选</span><p class="section-desc">页脚社交链接</p><div class="form-row"><div class="form-group"><label>微博链接</label><input id="weibo" placeholder="https://weibo.com/..."></div><div class="form-group"><label>抖音链接</label><input id="douyin" placeholder="https://www.douyin.com/..."></div></div><div class="form-group"><label>微信公众号二维码</label><div class="file-upload"><input type="file" accept="image/*" onchange="handleFile(this,'wechatQr')"><div class="icon">+</div><p>上传二维码</p></div><div class="preview-grid" id="wechatQr-preview"></div></div></div>
+</div>
+
+<div class="bottom-bar"><button class="btn btn-secondary" onclick="saveDraft()">保存草稿</button><button class="btn btn-success" onclick="exportData()">导出数据（发给我们）</button></div>
+<div class="toast" id="toast"></div>
+
+<script>
+var fileStore = {};
+var bannerCount=0, productCount=0, appCount=0, newsCount=0, officeCount=0, timelineCount=0, certCount=0;
+
+function handleFile(input, key) {
+    var file = input.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        fileStore[key] = { name: file.name, data: e.target.result, type: file.type };
+        var preview = document.getElementById(key + '-preview');
+        if (preview) { var img = document.createElement('img'); img.className = 'preview-item'; img.src = e.target.result; preview.textContent = ''; preview.appendChild(img); }
+        updateProgress();
+    };
+    reader.readAsDataURL(file);
+}
+
+function handleItemFile(input, listName, index, field) {
+    var file = input.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        fileStore[listName + '_' + index + '_' + field] = { name: file.name, data: e.target.result, type: file.type };
+        var preview = input.closest('.form-group').querySelector('.preview-grid');
+        if (preview) { var img = document.createElement('img'); img.className = 'preview-item'; img.src = e.target.result; preview.textContent = ''; preview.appendChild(img); }
+    };
+    reader.readAsDataURL(file);
+}
+
+function createEl(tag, attrs, children) {
+    var el = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function(k) { if (k === 'text') el.textContent = attrs[k]; else if (k === 'className') el.className = attrs[k]; else if (k.startsWith('on')) el[k] = attrs[k]; else el.setAttribute(k, attrs[k]); });
+    if (children) children.forEach(function(c) { if (typeof c === 'string') el.appendChild(document.createTextNode(c)); else if (c) el.appendChild(c); });
+    return el;
+}
+
+function removeItem(btn) { btn.closest('.item').remove(); updateProgress(); }
+function removeRow(btn) { btn.parentElement.remove(); }
+
+function addBanner() {
+    var i = bannerCount++, container = document.getElementById('bannersList');
+    var item = createEl('div', {className:'item', id:'banner-'+i});
+    var hdr = createEl('div', {className:'item-header'}, [createEl('h4', {text:'Banner #'+(i+1)}), createEl('button', {className:'remove-btn', text:'删除', onclick: function(){removeItem(this)}})]);
+    var g1 = createEl('div', {className:'form-group'}, [createEl('label', {text:'标题'}), createEl('input', {id:'banner-title-'+i, placeholder:'主标题'})]);
+    var g2 = createEl('div', {className:'form-group'}, [createEl('label', {text:'副标题'}), createEl('input', {id:'banner-sub-'+i, placeholder:'副标题'})]);
+    var g3 = createEl('div', {className:'form-group'}, [createEl('label', {text:'描述'}), createEl('input', {id:'banner-desc-'+i, placeholder:'一句话描述'})]);
+    var fu = createEl('div', {className:'file-upload'}, [createEl('div', {className:'icon', text:'+'}), createEl('p', {text:'上传1920x800以上大图'})]);
+    var fi = createEl('input', {type:'file', accept:'image/*'}); fi.onchange = function(){handleItemFile(this,'banner',i,'img')}; fu.appendChild(fi);
+    var g4 = createEl('div', {className:'form-group'}, [createEl('label', {text:'大图'}), fu, createEl('div', {className:'preview-grid'})]);
+    [hdr,g1,g2,g3,g4].forEach(function(c){item.appendChild(c)});
+    container.appendChild(item); updateProgress();
+}
+
+function addProduct() {
+    var i = productCount++, container = document.getElementById('productsList');
+    var item = createEl('div', {className:'item', id:'product-'+i});
+    var hdr = createEl('div', {className:'item-header'}, [createEl('h4', {text:'产品 #'+(i+1)}), createEl('button', {className:'remove-btn', text:'删除', onclick: function(){removeItem(this)}})]);
+    var row1 = createEl('div', {className:'form-row'}, [createEl('div', {className:'form-group'}, [createEl('label', {text:'产品名称'}), createEl('input', {id:'prod-name-'+i})]), createEl('div', {className:'form-group'}, [createEl('label', {text:'所属分类'}), createEl('input', {id:'prod-cat-'+i, placeholder:'如：扫描电镜'})])]);
+    var fu = createEl('div', {className:'file-upload'}, [createEl('div', {className:'icon', text:'+'}), createEl('p', {text:'上传产品图'})]); var fi = createEl('input', {type:'file', accept:'image/*'}); fi.onchange = function(){handleItemFile(this,'product',i,'img')}; fu.appendChild(fi);
+    var g2 = createEl('div', {className:'form-group'}, [createEl('label', {text:'产品图片'}), fu, createEl('div', {className:'preview-grid'})]);
+    var ta1 = createEl('textarea', {id:'prod-desc-'+i, rows:'2', placeholder:'50-100字产品简介'});
+    var g3 = createEl('div', {className:'form-group'}, [createEl('label', {text:'产品描述'}), ta1]);
+    var ta2 = createEl('textarea', {id:'prod-specs-'+i, rows:'3', placeholder:'每行一条：参数名=参数值'});
+    var g4 = createEl('div', {className:'form-group'}, [createEl('label', {text:'技术参数'}), ta2]);
+    var g5 = createEl('div', {className:'form-group'}, [createEl('label', {text:'产品亮点（逗号分隔）'}), createEl('input', {id:'prod-highlights-'+i, placeholder:'亮点1,亮点2'})]);
+    [hdr,row1,g2,g3,g4,g5].forEach(function(c){item.appendChild(c)});
+    container.appendChild(item); updateProgress();
+}
+
+function addApp() {
+    var i = appCount++, container = document.getElementById('appsList');
+    var item = createEl('div', {className:'item', id:'app-'+i});
+    var hdr = createEl('div', {className:'item-header'}, [createEl('h4', {text:'应用 #'+(i+1)}), createEl('button', {className:'remove-btn', text:'删除', onclick: function(){removeItem(this)}})]);
+    var g1 = createEl('div', {className:'form-group'}, [createEl('label', {text:'应用名称'}), createEl('input', {id:'app-name-'+i})]);
+    var fu = createEl('div', {className:'file-upload'}, [createEl('div', {className:'icon', text:'+'}), createEl('p', {text:'上传场景图'})]); var fi = createEl('input', {type:'file', accept:'image/*'}); fi.onchange = function(){handleItemFile(this,'app',i,'img')}; fu.appendChild(fi);
+    var g2 = createEl('div', {className:'form-group'}, [createEl('label', {text:'封面图'}), fu, createEl('div', {className:'preview-grid'})]);
+    var g3 = createEl('div', {className:'form-group'}, [createEl('label', {text:'描述'}), createEl('textarea', {id:'app-desc-'+i, rows:'2'})]);
+    [hdr,g1,g2,g3].forEach(function(c){item.appendChild(c)});
+    container.appendChild(item);
+}
+
+function addNews() {
+    var i = newsCount++, today = new Date().toISOString().split('T')[0], container = document.getElementById('newsList');
+    var item = createEl('div', {className:'item', id:'news-'+i});
+    var hdr = createEl('div', {className:'item-header'}, [createEl('h4', {text:'新闻 #'+(i+1)}), createEl('button', {className:'remove-btn', text:'删除', onclick: function(){removeItem(this)}})]);
+    var row = createEl('div', {className:'form-row'}, [createEl('div', {className:'form-group'}, [createEl('label', {text:'标题'}), createEl('input', {id:'news-title-'+i})]), createEl('div', {className:'form-group', style:'flex:0 0 160px'}, [createEl('label', {text:'日期'}), createEl('input', {type:'date', id:'news-date-'+i, value:today})])]);
+    var g2 = createEl('div', {className:'form-group'}, [createEl('label', {text:'摘要'}), createEl('input', {id:'news-excerpt-'+i, placeholder:'50字左右'})]);
+    var fu = createEl('div', {className:'file-upload'}, [createEl('div', {className:'icon', text:'+'}), createEl('p', {text:'上传封面图'})]); var fi = createEl('input', {type:'file', accept:'image/*'}); fi.onchange = function(){handleItemFile(this,'news',i,'img')}; fu.appendChild(fi);
+    var g3 = createEl('div', {className:'form-group'}, [createEl('label', {text:'封面图'}), fu, createEl('div', {className:'preview-grid'})]);
+    var g4 = createEl('div', {className:'form-group'}, [createEl('label', {text:'正文'}), createEl('textarea', {id:'news-content-'+i, rows:'6'})]);
+    [hdr,row,g2,g3,g4].forEach(function(c){item.appendChild(c)});
+    container.appendChild(item);
+}
+
+function addOffice() {
+    var i = officeCount++, container = document.getElementById('officesList');
+    var item = createEl('div', {className:'item', id:'office-'+i});
+    var hdr = createEl('div', {className:'item-header'}, [createEl('h4', {text:'分公司 #'+(i+1)}), createEl('button', {className:'remove-btn', text:'删除', onclick: function(){removeItem(this)}})]);
+    var row = createEl('div', {className:'form-row'}, [createEl('div', {className:'form-group', style:'flex:0 0 120px'}, [createEl('label', {text:'城市'}), createEl('input', {id:'office-city-'+i})]), createEl('div', {className:'form-group'}, [createEl('label', {text:'地址'}), createEl('input', {id:'office-addr-'+i})])]);
+    [hdr,row].forEach(function(c){item.appendChild(c)});
+    container.appendChild(item);
+}
+
+function addTimeline() {
+    var i = timelineCount++, container = document.getElementById('timelineList');
+    var row = createEl('div', {className:'timeline-row', id:'tl-'+i}, [createEl('input', {id:'tl-year-'+i, placeholder:'年份'}), createEl('input', {id:'tl-text-'+i, placeholder:'事件描述'}), createEl('button', {className:'remove-btn', text:'x', onclick: function(){removeRow(this)}})]);
+    container.appendChild(row);
+}
+
+function addCert() {
+    var i = certCount++, container = document.getElementById('certsList');
+    var item = createEl('div', {className:'item', id:'cert-'+i});
+    var hdr = createEl('div', {className:'item-header'}, [createEl('h4', {text:'资质 #'+(i+1)}), createEl('button', {className:'remove-btn', text:'删除', onclick: function(){removeItem(this)}})]);
+    var g1 = createEl('div', {className:'form-group'}, [createEl('label', {text:'证书名称'}), createEl('input', {id:'cert-name-'+i})]);
+    var fu = createEl('div', {className:'file-upload'}, [createEl('div', {className:'icon', text:'+'}), createEl('p', {text:'上传证书照片'})]); var fi = createEl('input', {type:'file', accept:'image/*'}); fi.onchange = function(){handleItemFile(this,'cert',i,'img')}; fu.appendChild(fi);
+    var g2 = createEl('div', {className:'form-group'}, [createEl('label', {text:'证书照片'}), fu, createEl('div', {className:'preview-grid'})]);
+    [hdr,g1,g2].forEach(function(c){item.appendChild(c)});
+    container.appendChild(item);
+}
+
+function updateProgress() {
+    var total = 9, done = 0;
+    if (document.getElementById('companyFull').value && document.getElementById('companyShort').value) done++;
+    if (document.getElementById('phone').value && document.getElementById('email').value) done++;
+    if (document.querySelectorAll('#bannersList .item').length >= 2) done++;
+    if (document.querySelectorAll('#productsList .item').length >= 3) done++;
+    if (document.querySelectorAll('#appsList .item').length >= 1) done++;
+    if (document.querySelectorAll('#newsList .item').length >= 1) done++;
+    if (document.getElementById('mission').value || document.getElementById('vision').value) done++;
+    if (document.getElementById('domain').value) done++;
+    if (document.getElementById('weibo').value || document.getElementById('douyin').value || fileStore['wechatQr']) done++;
+    document.getElementById('progressFill').style.width = (done / total * 100) + '%';
+    document.getElementById('progressText').textContent = done + ' / ' + total + ' 已完成';
+}
+document.addEventListener('input', updateProgress);
+
+function collectData() {
+    var data = { _meta: { version: '1.0', createdAt: new Date().toISOString(), generator: 'client-form' }, company: { fullName: document.getElementById('companyFull').value, shortName: document.getElementById('companyShort').value, enName: document.getElementById('companyEn').value, slogan: document.getElementById('companySlogan').value, intro: document.getElementById('companyIntro').value }, contact: { phone: document.getElementById('phone').value, mobile: document.getElementById('mobile').value, email: document.getElementById('email').value, email2: document.getElementById('email2').value, address: document.getElementById('address').value, offices: [] }, banners: [], productCats: document.getElementById('productCats').value, products: [], apps: [], news: [], culture: { mission: document.getElementById('mission').value, vision: document.getElementById('vision').value, values: document.getElementById('values').value, timeline: [], certs: [] }, seo: { domain: document.getElementById('domain').value, icp: document.getElementById('icp').value, title: document.getElementById('siteTitle').value, desc: document.getElementById('siteDesc').value, keywords: document.getElementById('siteKeywords').value }, social: { weibo: document.getElementById('weibo').value, douyin: document.getElementById('douyin').value }, files: fileStore };
+    for (var i = 0; i < officeCount; i++) { if (!document.getElementById('office-'+i)) continue; data.contact.offices.push({ city: (document.getElementById('office-city-'+i)||{}).value||'', address: (document.getElementById('office-addr-'+i)||{}).value||'' }); }
+    for (var i = 0; i < bannerCount; i++) { if (!document.getElementById('banner-'+i)) continue; data.banners.push({ title: (document.getElementById('banner-title-'+i)||{}).value||'', subtitle: (document.getElementById('banner-sub-'+i)||{}).value||'', desc: (document.getElementById('banner-desc-'+i)||{}).value||'', img: fileStore['banner_'+i+'_img']||null }); }
+    for (var i = 0; i < productCount; i++) { if (!document.getElementById('product-'+i)) continue; var specs = ((document.getElementById('prod-specs-'+i)||{}).value||''); data.products.push({ name: (document.getElementById('prod-name-'+i)||{}).value||'', cat: (document.getElementById('prod-cat-'+i)||{}).value||'', desc: (document.getElementById('prod-desc-'+i)||{}).value||'', specs: specs.split('\n').filter(Boolean).map(function(s){var p=s.split('=');return[p[0]||'',p[1]||'']}), highlights: ((document.getElementById('prod-highlights-'+i)||{}).value||'').split(',').filter(Boolean), img: fileStore['product_'+i+'_img']||null }); }
+    for (var i = 0; i < appCount; i++) { if (!document.getElementById('app-'+i)) continue; data.apps.push({ name: (document.getElementById('app-name-'+i)||{}).value||'', desc: (document.getElementById('app-desc-'+i)||{}).value||'', img: fileStore['app_'+i+'_img']||null }); }
+    for (var i = 0; i < newsCount; i++) { if (!document.getElementById('news-'+i)) continue; data.news.push({ title: (document.getElementById('news-title-'+i)||{}).value||'', date: (document.getElementById('news-date-'+i)||{}).value||'', excerpt: (document.getElementById('news-excerpt-'+i)||{}).value||'', content: (document.getElementById('news-content-'+i)||{}).value||'', img: fileStore['news_'+i+'_img']||null }); }
+    for (var i = 0; i < timelineCount; i++) { if (!document.getElementById('tl-'+i)) continue; data.culture.timeline.push({ year: (document.getElementById('tl-year-'+i)||{}).value||'', text: (document.getElementById('tl-text-'+i)||{}).value||'' }); }
+    for (var i = 0; i < certCount; i++) { if (!document.getElementById('cert-'+i)) continue; data.culture.certs.push({ name: (document.getElementById('cert-name-'+i)||{}).value||'', img: fileStore['cert_'+i+'_img']||null }); }
+    return data;
+}
+
+function exportData() {
+    var data = collectData();
+    var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = (data.company.shortName || data.company.fullName || '客户') + '-网站素材-' + new Date().toISOString().split('T')[0] + '.json';
+    a.click();
+    showToast('数据已导出！请将文件发送给我们');
+}
+
+function saveDraft() { localStorage.setItem('client_form_draft', JSON.stringify(collectData())); showToast('草稿已保存'); }
+
+function loadDraft() {
+    var raw = localStorage.getItem('client_form_draft'); if (!raw) return;
+    try {
+        var d = JSON.parse(raw);
+        var fields = {companyFull:'company.fullName',companyShort:'company.shortName',companyEn:'company.enName',companySlogan:'company.slogan',companyIntro:'company.intro',phone:'contact.phone',mobile:'contact.mobile',email:'contact.email',email2:'contact.email2',address:'contact.address',domain:'seo.domain',icp:'seo.icp',siteTitle:'seo.title',siteDesc:'seo.desc',siteKeywords:'seo.keywords',mission:'culture.mission',vision:'culture.vision',values:'culture.values',productCats:'productCats',weibo:'social.weibo',douyin:'social.douyin'};
+        Object.keys(fields).forEach(function(id) { var path = fields[id].split('.'); var val = d; path.forEach(function(p){val=val&&val[p]}); if (val) document.getElementById(id).value = val; });
+        if (d.files) { fileStore = d.files; Object.keys(fileStore).forEach(function(k) { var p = document.getElementById(k+'-preview'); if (p && fileStore[k] && fileStore[k].data) { var img = document.createElement('img'); img.className='preview-item'; img.src=fileStore[k].data; p.textContent=''; p.appendChild(img); } }); }
+        (d.contact&&d.contact.offices||[]).forEach(function(o){addOffice();document.getElementById('office-city-'+(officeCount-1)).value=o.city;document.getElementById('office-addr-'+(officeCount-1)).value=o.address});
+        (d.banners||[]).forEach(function(b){addBanner();document.getElementById('banner-title-'+(bannerCount-1)).value=b.title;document.getElementById('banner-sub-'+(bannerCount-1)).value=b.subtitle;document.getElementById('banner-desc-'+(bannerCount-1)).value=b.desc});
+        (d.products||[]).forEach(function(p){addProduct();document.getElementById('prod-name-'+(productCount-1)).value=p.name;document.getElementById('prod-cat-'+(productCount-1)).value=p.cat;document.getElementById('prod-desc-'+(productCount-1)).value=p.desc;document.getElementById('prod-specs-'+(productCount-1)).value=(p.specs||[]).map(function(s){return s[0]+'='+s[1]}).join('\n');document.getElementById('prod-highlights-'+(productCount-1)).value=(p.highlights||[]).join(',')});
+        (d.apps||[]).forEach(function(a){addApp();document.getElementById('app-name-'+(appCount-1)).value=a.name;document.getElementById('app-desc-'+(appCount-1)).value=a.desc});
+        (d.news||[]).forEach(function(n){addNews();document.getElementById('news-title-'+(newsCount-1)).value=n.title;document.getElementById('news-date-'+(newsCount-1)).value=n.date;document.getElementById('news-excerpt-'+(newsCount-1)).value=n.excerpt;document.getElementById('news-content-'+(newsCount-1)).value=n.content});
+        (d.culture&&d.culture.timeline||[]).forEach(function(t){addTimeline();document.getElementById('tl-year-'+(timelineCount-1)).value=t.year;document.getElementById('tl-text-'+(timelineCount-1)).value=t.text});
+        (d.culture&&d.culture.certs||[]).forEach(function(c){addCert();document.getElementById('cert-name-'+(certCount-1)).value=c.name});
+        updateProgress();
+    } catch(e) { console.error(e); }
+}
+
+function showToast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show')}, 3000); }
+
+window.addEventListener('load', loadDraft);
+</script>
+</body>
+</html>
