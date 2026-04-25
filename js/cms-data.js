@@ -34,7 +34,7 @@
     "prod_1000": {
         "name": "飞秒激光微纳加工设备",
         "cat": "femto",
-        "img": "/images/535d41237840-535d-4123-7840-535d4123.png",
+        "img": "images/535d41237840-535d-4123-7840-535d4123.png",
         "desc": "搭载高质量飞秒激光器，配合自主研发的高精密多轴运动平台，实现材料的可控锥度高精密加工",
         "specs": [
             [
@@ -86,7 +86,7 @@
     "prod_1001": {
         "name": "原位微拉伸力学性能测试装备",
         "cat": "sem-mech",
-        "img": "/images/f2828af8c625-f282-8af8-c625-f2828af8.jpg",
+        "img": "images/f2828af8c625-f282-8af8-c625-f2828af8.jpg",
         "desc": "集成了力学拉伸压缩测试模块，轻量化设计，重量仅1.7kg，可与市面上大部分扫描电镜配合，自主研发的离轴设计及样品倾转70°特殊结构设计，无需设备倾转即可EBSD配合进行原位EBSD拉伸测试",
         "specs": [
             [
@@ -123,7 +123,7 @@
     "prod_1002": {
         "name": "水浸式超声波检测设备",
         "cat": "ultrasonic",
-        "img": "/images/9b420058286c-9b42-0058-286c-9b420058.jpg",
+        "img": "images/9b420058286c-9b42-0058-286c-9b420058.jpg",
         "desc": "采用超窄脉冲信号发射及高速信号采集的超声板卡，配合四轴运动平台，实现异性工件的超声波自动化检测",
         "specs": [
             [
@@ -195,13 +195,13 @@
     "app_1000": {
         "name": "原位微拉伸力学性能测试装备",
         "desc": "EBSD原位拉伸测试",
-        "img": "/images/831686d99c28-8316-86d9-9c28-831686d9.png",
+        "img": "images/831686d99c28-8316-86d9-9c28-831686d9.png",
         "articles": []
     },
     "app_1001": {
         "name": "发动机连杆衬套贴合度超声波检测",
         "desc": "采用水浸式超声波检测的方法对发动机连杆衬套配合面的缺陷进行检测",
-        "img": "/images/0dc6ddda4bec-0dc6-ddda-4bec-0dc6ddda.png",
+        "img": "images/0dc6ddda4bec-0dc6-ddda-4bec-0dc6ddda.png",
         "articles": []
     }
 };
@@ -213,7 +213,7 @@
         "title": "飞秒激光微纳加工设备",
         "subtitle": "光辰科技仪器 GCTech",
         "desc": "搭载高质量飞秒激光器，配合自主研发的高精密多轴运动平台，实现材料的可控锥度高精密加工",
-        "bgImage": "/images/ceb403818487-ceb4-0381-8487-ceb40381.png",
+        "bgImage": "images/ceb403818487-ceb4-0381-8487-ceb40381.png",
         "btnText": "了解更多 +",
         "btnLink": "products"
     },
@@ -221,7 +221,7 @@
         "title": "原位微拉伸力学性能测试装备",
         "subtitle": "光辰科技仪器 GCTech",
         "desc": "集成力学拉伸压缩测试模块，自主研发离轴设计与样品倾转70°结构，可直接与EBSD配合进行原位测试",
-        "bgImage": "/images/f2828af8c625-f282-8af8-c625-f2828af8.jpg",
+        "bgImage": "images/f2828af8c625-f282-8af8-c625-f2828af8.jpg",
         "btnText": "了解更多 +",
         "btnLink": "products"
     },
@@ -229,7 +229,7 @@
         "title": "水浸式超声波检测设备",
         "subtitle": "光辰科技仪器 GCTech",
         "desc": "采用超窄脉冲信号发射及高速信号采集，实现异性工件的超声波自动化检测",
-        "bgImage": "/images/9b420058286c-9b42-0058-286c-9b420058.jpg",
+        "bgImage": "images/9b420058286c-9b42-0058-286c-9b420058.jpg",
         "btnText": "了解更多 +",
         "btnLink": "products"
     }
@@ -259,8 +259,8 @@
     "qrcode": "",
     "footerQrcode": "",
     "offices": [],
-    "logoLight": "/images/883cf5d20bcb-883c-f5d2-0bcb-883cf5d2.png",
-    "logoDark": "/images/883cf5d20bcb-883c-f5d2-0bcb-883cf5d2.png",
+    "logoLight": "images/883cf5d20bcb-883c-f5d2-0bcb-883cf5d2.png",
+    "logoDark": "images/883cf5d20bcb-883c-f5d2-0bcb-883cf5d2.png",
     "aboutVideo": "",
     "aboutVideoThumb": "",
     "aboutIntro": "深圳光辰科技仪器有限公司成立于2025年08月26日，公司专注于激光加工、微纳加工、原位测量系统、超声波检测等精密设备的研究，致力于为智能制造、半导体、生物医疗及航空航天等领域提供高精度、高稳定性的核心装备与系统解决方案。",

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <base href="/gctech-website/">
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>光辰科技仪器 - 后台管理</title>
 <style>
@@ -657,7 +656,7 @@ function handleImageUpload(fileInput, targetInputId) {
     var btn = fileInput.parentElement;
     btn.innerHTML = '上传中...';
 
-    fetch('/api/upload', { method: 'POST', body: formData })
+    fetch('api/upload', { method: 'POST', body: formData })
     .then(function(r) { return r.json(); })
     .then(function(data) {
         if (data.success && data.files && data.files[0]) {
